@@ -6,20 +6,16 @@ module.exports = {
         path: path.join(__dirname, 'public', 'dist'),
         filename: 'vendor.js'
     },
+    devtool: 'source-map',
     module: {
         loaders: [
             {
                 test: /\.js$/,
                 loader: "babel-loader",
+                plugins: ['transform-runtime'],
                 query: {
                     presets: ['es2015']
                 }
-            },
-        ],
-        postLoaders: [
-            {
-                test: /\.js$/,
-                loader: 'uglify'
             },
         ]
     }
